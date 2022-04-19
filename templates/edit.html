@@ -1,0 +1,30 @@
+{% extends "template.html" %}
+{% block conteudo %}
+      <form action="{{ url_for('alter') }}"method="post">
+        <figure>
+          <img src="{{ url_for('imagem', nome_arquivo='capa') }}">
+          <figcaption>
+            <label>
+              <input type="file" name="arch" accept=".jpg">
+            </label>
+          </figcaption>
+        </figure>
+        <fieldset class="formulario">
+          <input type="hidden" name="id" value="{{ jogo.id }}">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" class="form-control" value="{{ jogo.nome }}">
+          </div>
+          <div class="form-group">
+            <label for="categoria">Categoria</label>
+            <input type="text" id="categoria" name="categoria" class="form-control" value="{{ jogo.categoria }}">
+          </div>
+          <div class="form-group">
+            <label for="console">Console</label>
+            <input type="text" id="console" name="console" class="form-control" value="{{ jogo.console }}">
+          </div>
+          <button type="submit" class="btn btn-primary btn-salvar butao">Salvar</button>
+          <a href="{{ url_for('index')}}" class="btn btn-danger butao">Voltar</a>
+        </fieldset>
+      </form>
+{% endblock %}
